@@ -31,14 +31,14 @@ out.info('lorem ipsum');
 dev.info('lorem ipsum');
 
 
-// activate/deactivate dev, .dev content is being display only if devOut===true
+// activate/deactivate dev, .dev content is being display only if dev mode is on
 
-cli.devOut=true;
+cli.setDevMode(true);
 // --OR--
-cli.devOut=false;
+cli.setDevMode(false);
 
 
-// to apply color to string and display it later with other cli lib use this:
+// to apply color to string and display it later with another lib use this:
 cli.utils.apply_color('lorem ipsum', 'info');
 
 var raw_text="lorem ipsum";

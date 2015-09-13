@@ -1,6 +1,6 @@
 {
   "name": "quick-cli",
-  "version": "0.0.1",
+  "version": "1.0.2",
   "description": "Makes writing CLI code super easy and quick without losing flexibility.",
   "main": "index.js",
   "scripts": {
@@ -30,10 +30,5 @@
     "deasync": "^0.1.1",
     "inquirer": "^0.9.0"
   },
-  "readme": "# Installation\n\n```bash\nnpm i quick-cli --save\n```\n\n# Usage\n\n```js\nvar cli = require('quick-cli');\n\n\n// choose meaning of your out text, quick-cli will apply colors\ncli.out('lorem ipsum', 'info');\ncli.out('lorem ipsum', 'form');\ncli.out('lorem ipsum', 'success');\ncli.out('lorem ipsum', 'warning');\ncli.out('lorem ipsum', 'error');\n\n\n// to display something only in dev/debug mode, use .dev instead of .out\ncli.out('lorem ipsum', 'info');\ncli.dev('lorem ipsum', 'info');\n\n\n// activate/deactivate dev, .dev content is being display only if devOut===true\n\ncli.devOut=true;\n// --OR--\ncli.devOut=false;\n\n\n// to apply color to string and display it later with other cli lib use this:\ncli.apply_color('lorem ipsum', 'info');\n\nvar raw_text=\"lorem ipsum\";\nvar colorful_text=cli.apply_color(raw_text, 'info');\n\nconsole.log(colorful_text); // both will display same\ncli.out(raw_text, 'info');  // way formatted text\n```\n",
-  "readmeFilename": "README.md",
-  "gitHead": "31f8196108d8d7c46fe185f5a64c7d30499c9572",
-  "_id": "quick-cli@0.0.0",
-  "_shasum": "0829815421c2aba33b1c729961ccf006915c1885",
-  "_from": "quick-cli@*"
+  "readmeFilename": "README.md"
 }

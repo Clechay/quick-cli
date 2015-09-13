@@ -24,6 +24,10 @@ var core={
   }
 }
 module.exports={
+  setDevMode:function("remote_devMode_val"){
+  	c_devOut=remote_devMode_val;
+  	return c_devOut;
+  },
   devOut:{
     err:function (text,color){
         if(typeof color==="undefined") color='error';
