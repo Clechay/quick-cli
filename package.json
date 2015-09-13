@@ -1,6 +1,6 @@
 {
   "name": "quick-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Makes writing CLI code super easy and quick without losing flexibility.",
   "main": "index.js",
   "scripts": {
