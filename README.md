@@ -58,18 +58,31 @@ input.pass(question)
 input.confirm(question)
 input.list(question,choices)
 input.checkbox(question,choices)
-
-// output:
-// λ node test.js        
-// ? abc foo             
-// ? abc ***             
-// ? abc Yes             
-// ? abc (Use arrow keys)
-// > x                   
-//   y                   
-//   z    
-// ? abc (Press <space> to select)
-// >( ) x
-//  ( ) y
-//  ( ) z
 ```
+
+### input example
+
+```js
+var cli = require('./index.js'); out=cli.out;input=cli.in;
+
+var question = "abc",
+    choices = ["x","y","z"];
+
+out.info("text input:");
+input.text(question)
+
+out.info("\n\npassword input:");
+input.pass(question)
+
+out.info("\n\nconfirm input:");
+input.confirm(question)
+
+out.info("\n\nlist input:");
+input.list(question,choices)
+
+out.info("\n\ncheckbox input:");
+input.checkbox(question,choices)
+```
+
+#### click to watch console screen cast
+http://www.youtube.com/watch?v=9-GJz1Nlb6I
