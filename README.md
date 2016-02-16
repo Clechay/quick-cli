@@ -86,3 +86,6 @@ input.checkbox(question,choices)
 
 #### click to watch console screen cast
 http://www.youtube.com/watch?v=9-GJz1Nlb6I
+
+### If You want to sumbit Issue or Pull Request go to main repo: https://gitlab.com/Clechay/quick-cli
+Github repo is only a clone.
