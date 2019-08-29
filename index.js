@@ -37,7 +37,7 @@ const dev = (...args) => {
   if (display_development_output) out(...args);
 }
 
-const set_color = (colorId, brush) => {
+const setColor = (colorId, brush) => {
   colors[colorId] = brush;
   out[colorId] = (...input) => out(colorId, ...input)
   dev[colorId] = (...input) => dev(colorId, ...input)
@@ -45,7 +45,7 @@ const set_color = (colorId, brush) => {
 
 for (const colorId in defaultColors) {
   if (defaultColors.hasOwnProperty(colorId)) {
-    set_color(colorId, defaultColors[colorId])
+    setColor(colorId, defaultColors[colorId])
   }
 }
 
@@ -160,5 +160,6 @@ module.exports = {
   dev,
   apply_color,
   input,
-  syncInput
+  syncInput,
+  setColor
 }
