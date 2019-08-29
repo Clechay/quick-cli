@@ -20,27 +20,30 @@ let display_development_output = false;
 const colors = {
 }
 const defaultColors = {
+  log: (...input) => input.join(""),
   info: (...input) => chalk.blue(...input),
   form: (...input) => chalk.magenta(...input),
   success: (...input) => chalk.green(...input),
   warning: (...input) => chalk.red(...input),
+  warn: (...input) => chalk.red(...input),
   error: (...input) => chalk.white.bgRed(...input),
+  err: (...input) => chalk.white.bgRed(...input),
 }
 const apply_color = (colorId, ...input) => {
   const brush = colors[colorId] || console.log;
   return brush(...input);
 }
-const out = (colorId, ...input) => {
+const output = (colorId, ...input) => {
   console.log(apply_color(colorId, ...input));
 }
-const dev = (...args) => {
-  if (display_development_output) out(...args);
+const devOutput = (...args) => {
+  if (display_development_output) output(...args);
 }
 
 const setColor = (colorId, brush) => {
   colors[colorId] = brush;
-  out[colorId] = (...input) => out(colorId, ...input)
-  dev[colorId] = (...input) => dev(colorId, ...input)
+  output[colorId] = (...input) => output(colorId, ...input)
+  devOutput[colorId] = (...input) => devOutput(colorId, ...input)
 }
 
 for (const colorId in defaultColors) {
@@ -67,7 +70,7 @@ const input = {
       return response.inp;
     }
     catch (e) {
-      out.error("unable to querry", e)
+      output.error("unable to querry", e)
     }
   },
   list: async (questionText, choices) => {
@@ -82,7 +85,7 @@ const input = {
       return response.inp;
     }
     catch (e) {
-      out.error("unable to querry", e)
+      output.error("unable to querry", e)
     }
   },
   checkbox: async (questionText, choices) => {
@@ -97,7 +100,7 @@ const input = {
       return response.inp;
     }
     catch (e) {
-      out.error("unable to querry", e)
+      output.error("unable to querry", e)
     }
   },
   confirm: async (questionText) => {
@@ -111,7 +114,7 @@ const input = {
       return response.inp;
     }
     catch (e) {
-      out.error("unable to querry", e)
+      output.error("unable to querry", e)
     }
   },
   pass: async (questionText, validator) => {
@@ -128,7 +131,7 @@ const input = {
       return response.inp;
     }
     catch (e) {
-      out.error("unable to querry", e)
+      output.error("unable to querry", e)
     }
   }
 }
@@ -156,10 +159,16 @@ module.exports = {
     display_development_output = active;
     return active;
   },
-  out,
-  dev,
+
+  output,
+  out:output,
+
+  devOutput,
+  dev:devOutput,
+
   apply_color,
+  setColor,
+
   input,
   syncInput,
-  setColor
 }
